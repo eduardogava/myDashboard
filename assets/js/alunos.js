@@ -1,13 +1,12 @@
-
 var aluno = {};
 var listaAlunos = [];
 
 function validarForm() {
     return $('#nomeAluno').valid() &&
-        $("#primeiroBi").valid() &&
-        $("#segundoBi").valid() &&
-        $("#terceiroBi").valid() &&
-        $("#quartoBi").valid();
+           $("#primeiroBi").valid() &&
+           $("#segundoBi").valid() &&
+           $("#terceiroBi").valid() &&
+           $("#quartoBi").valid();
 }
 
 function feedbackFormValidacao() {
@@ -25,7 +24,7 @@ function adicionarAluno() {
 
     if (formValido) {
         aluno.nome = $("#nomeAluno").val();
-        aluno.nota1 = parseInt($("#terceiroBi").val());
+        aluno.nota1 = parseInt($("#primeiroBi").val());
         aluno.nota2 = parseInt($("#segundoBi").val());
         aluno.nota3 = parseInt($("#terceiroBi").val());
         aluno.nota4 = parseInt($("#quartoBi").val());
@@ -36,6 +35,7 @@ function adicionarAluno() {
         adicionarLinhaTabela(aluno);
 
         aluno = {};
+
         $(":input").val("");
 
     } else {
@@ -61,8 +61,6 @@ function calcularSituacao(media) {
     }
 }
 
-}
-
 function adicionarLinhaTabela(objeto) {
     var tabela = document.querySelector("table");
     var tr = tabela.insertRow();
@@ -73,15 +71,15 @@ function adicionarLinhaTabela(objeto) {
         "<td>" + objeto.nota4 + "</td>" +
         "<td>" + objeto.total + "</td>" +
         "<td>" + objeto.media + "</td>" +
-        "<td>" + objeto.situacao + "</td>" +
-        "<td><button type='button' class='btn btn-danger' onclick='deletarLinha(this)' ><i class='fas fa-trash'></i> </button></td>" +
-        toastr.success('Aluno incluido com sucesso!');
+        "<td>" + objeto.situacao + "</td>"+
+        "<td><button type='button' class='btn btn-danger btn-sm' onclick='deletarLinha(this)'>X</button></td>";
+
+        toastr.success('Aluno incluido com sucesso');
 }
 
 function deletarLinha(linha) {
     var i = linha.parentNode.parentNode.rowIndex;
     document.querySelector('table').deleteRow(i);
-    toastr.info('Linha deletada com sucesso!');
-
+    toastr.info('Aluno excluido com sucesso');
     //document.getElementById('tableAlunos').deleteRow(index)
 }
