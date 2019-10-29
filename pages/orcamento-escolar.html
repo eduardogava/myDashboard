@@ -275,7 +275,7 @@
                                             <div class="col-sm-12 col-md-4 col-lg-3">
                                                 <div class="form-group">
                                                     <label for="escolhaOpcao">Material escolar</label>
-                                                    <select class="form-control" id="escolhaOpcao">
+                                                    <select class="form-control" id="escolhaOpcao" required>
 
                                                     </select>
                                                 </div>
@@ -291,16 +291,16 @@
                                                 <label for="precoUnitario">Preço Unitário</label>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="precoUnitario"><a><i
+                                                        <span class="input-group-text"><a><i
                                                                     class="fas fa-dollar-sign"></i></a></span>
                                                     </div>
-                                                    <input type="text" class="form-control" required>
+                                                    <input type="text" class="form-control" id="precoUnitario" required>
                                                 </div>
                                             </div>
 
                                             <div class="col-sm-12 col-md-3 col-lg-3">
                                                 <div class="form-group pt-31">
-                                                    <button type="button" class="btn btn-primary" id="botaozao"
+                                                    <button type="button" class="btn btn-primary" id="botaozao" onclick="adicionarItem()"        
                                                         disabled>
                                                         <i class="fas fa-plus"></i> Adicionar
                                                     </button>
@@ -331,13 +331,13 @@
 
                                             <div class="col-sm-2">
                                                 <!-- small card -->
-                                                <div class="small-box bg-gradient-green">
+                                                <div class="small-box bg-gradient-green" id="camaro">
                                                     <div class="inner">
-                                                        <h3>150</h3>
+                                                        <h3 id="totalDinheiro"></h3>
 
                                                         <p>New Orders</p>
                                                     </div>
-                                                    <div class="icon">
+                                                    <div class="icon" >
                                                         <i class="fas fa-shopping-cart"></i>
                                                     </div>
                                                     <a href="#" class="small-box-footer">

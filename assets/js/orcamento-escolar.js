@@ -30,8 +30,8 @@ function validarProdutos() {
   console.log("validarProdutos");
 
   return $('#escolhaOpcao').valid() &&
-    $('#quantidadeProduto').valid() &&
-    $('#precoUnitario').valid();
+         $('#quantidadeProduto').valid() &&
+         $('#precoUnitario').valid();
 }
 
 function calcularTotal(Quantidade, Preco) {
@@ -41,6 +41,7 @@ function calcularTotal(Quantidade, Preco) {
 }
 
 function adicionarItem() {
+
 
   console.log("adicionarItem");
   var validarItem = validarProdutos();
@@ -52,7 +53,7 @@ function adicionarItem() {
     item.Preco = parseInt($("#precoUnitario").val());
     item.Total = calcularTotal(item.Quantidade, item.Preco);
     adicionarProdutoTabela(item);
-
+    mudarCorCamaro(item.Total, $("#gastarAte").val());
     item = {};
     $(":input").val("");
   }
@@ -66,4 +67,19 @@ function adicionarProdutoTabela(objeto) {
     "<td>" + objeto.Quantidade + "</td>" +
     "<td>" + objeto.Preco + "</td>" +
     "<td>" + objeto.Total + "</td>";
+};
+
+function mudarCorCamaro(valorTotal, gastarMaximo){
+  if(gastarMaximo < valorTotal){
+    $("#camaro").removeClass('small-box bg-gradient-green');
+    $("#camaro").addClass('small-box bg-red');
+  }
+  else{
+    $("#camaro").addClass('small-box bg-gradient-green');
+  }
+
+}
+
+function mudarMoney(){
+  h3.innerHTML = "<h3> R$" + ($("#totalDinheiro").val()) + "</h3>";
 }
