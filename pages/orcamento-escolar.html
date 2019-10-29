@@ -250,7 +250,7 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <form id="formAdicionarAluno">
+                                    <form>
                                         <div class="row">
 
                                             <div class="col-sm-12 col-md-4 col-lg-4">
@@ -264,11 +264,9 @@
                                                 <label for="gastarAte">Posso gastar até</label>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="gastarAte"><a><i
-                                                                    class="fas fa-dollar-sign"></i></a></span>
+                                                        <span class="input-group-text"><a><i class="fas fa-dollar-sign"></i></a></span>
                                                     </div>
-                                                    <input type="text" class="form-control" aria-label="gastarAte"
-                                                        aria-describedby="gastarAte" required>
+                                                    <input id="gastarAte" type="number" class="form-control" required >
                                                 </div>
                                             </div>
                                         </div>
@@ -284,8 +282,8 @@
                                             </div>
                                             <div class="col-sm-12 col-md-4 col-lg-3">
                                                 <div class="form-group">
-                                                    <label for="nomeAluno">Quantidade</label>
-                                                    <input id="nomeAluno" type="number" class="form-control" required>
+                                                    <label for="quantidadeProduto">Quantidade</label>
+                                                    <input id="quantidadeProduto" type="number" class="form-control" required>
                                                 </div>
                                             </div>
 
@@ -296,60 +294,61 @@
                                                         <span class="input-group-text" id="precoUnitario"><a><i
                                                                     class="fas fa-dollar-sign"></i></a></span>
                                                     </div>
-                                                    <input type="text" class="form-control" aria-label="precoUnitario"
-                                                        aria-describedby="precoUnitario">
+                                                    <input type="text" class="form-control" required>
                                                 </div>
                                             </div>
 
                                             <div class="col-sm-12 col-md-3 col-lg-3">
                                                 <div class="form-group pt-31">
-                                                    <button type="button" class="btn btn-primary" onclick="">
+                                                    <button type="button" class="btn btn-primary" id="botaozao"
+                                                        disabled>
                                                         <i class="fas fa-plus"></i> Adicionar
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+
+                                            <h2 class="mg-31">
+                                                <i class="fas fa-list-ul"> </i>Lista de Materiais do aluno:
+                                            </h2>
+                                        </div>
+                                        <div class="row mg-15">
+                                            <div class="col-sm-9">
+                                                <div class="card-body table-responsive p-0">
+                                                    <table id="materiaisEscolhidos" class="table table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Material</th>
+                                                                <th>Quantidade</th>
+                                                                <th>Valor unitário</th>
+                                                                <th>Total</th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-2">
+                                                <!-- small card -->
+                                                <div class="small-box bg-gradient-green">
+                                                    <div class="inner">
+                                                        <h3>150</h3>
+
+                                                        <p>New Orders</p>
+                                                    </div>
+                                                    <div class="icon">
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                    </div>
+                                                    <a href="#" class="small-box-footer">
+                                                        More info <i class="fas fa-arrow-circle-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </form>
                                 </div>
-                                <div class="row">
 
-                                    <h2 class="mg-31">
-                                        <i class="fas fa-list-ul"> Lista de Materiais do aluno:</i>
-                                    </h2>
-                                </div>
-                                <div class="row mg-15">
-                                    <div class="col-sm-9">
-                                        <div class="card-body table-responsive p-0">
-                                            <table id="materiaisEscolhidos" class="table table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Material</th>
-                                                        <th>Quantidade</th>
-                                                        <th>Valor unitário</th>
-                                                        <th>Total</th>
-                                                    </tr>
-                                                </thead>
-                                            </table>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-2">
-                                        <!-- small card -->
-                                        <div class="small-box bg-gradient-green">
-                                            <div class="inner">
-                                                <h3>150</h3>
-
-                                                <p>New Orders</p>
-                                            </div>
-                                            <div class="icon">
-                                                <i class="fas fa-shopping-cart"></i>
-                                            </div>
-                                            <a href="#" class="small-box-footer">
-                                                More info <i class="fas fa-arrow-circle-right"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
 
 
 
@@ -362,13 +361,6 @@
 
                 </div>
             </div>
-            <!-- Main content -->
-            <div class="content">
-                <div class="container-fluid">
-
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content -->
         </div>
 
         <!-- #endregion /.content-wrapper -->
@@ -401,14 +393,15 @@
 
         <!-- jQuery -->
         <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/jquery.validate.js"></script>
         <!-- Bootstrap 4 -->
         <script src="../assets/js/bootstrap.bundle.min.js"></script>
         <!-- AdminLTE App -->
         <script src="../assets/js/adminlte.min.js"></script>
-        <script src="../assets/js/jquery.validate.js"></script>
+
         <script src="../assets/js/toastr.min.js"></script>
         <script src="../assets/js/orcamento-escolar.js"></script>
-        <script src="../assets/js/alunos.js"></script>
+
         <!--#endregion-->
 </body>
 
